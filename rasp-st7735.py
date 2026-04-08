@@ -3,6 +3,10 @@ import digitalio
 import board
 import busio
 import adafruit_rgb_display.st7735 as st7735
+# import pygame
+
+# pygame.mixer.init()
+# pygame.mixer.music.load("audio.wav")
 
 #SPI
 spi = busio.SPI(clock=board.SCK, MOSI=board.MOSI)
@@ -29,11 +33,12 @@ display = st7735.ST7735R(
 FRAME_WIDTH = 128
 FRAME_HEIGHT = 160
 FRAME_SIZE = FRAME_WIDTH * FRAME_HEIGHT * 2  # RGB565
-FPS = 8
+FPS = 20
 DELAY = 1 / FPS
 
 # Reproduzir vídeo
 with open("video.raw", "rb") as f:
+    pygame.mixer.music.play()
     while True:
         start = time.time()
 
@@ -44,9 +49,9 @@ with open("video.raw", "rb") as f:
 
         #correção de cores (byte swap)
         #[byte0,byte1]=[byte1,byte0]
-        frame = bytearray(frame)
-        for i in range(0, len(frame), 2):
-            frame[i], frame[i+1] = frame[i+1], frame[i]
+        # frame = bytearray(frame)
+        # for i in range(0, len(frame), 2):
+        #     frame[i], frame[i+1] = frame[i+1], frame[i]
 
         #envia direto pro display
         display._block(0, 0, FRAME_WIDTH - 1, FRAME_HEIGHT - 1, frame)
@@ -59,4 +64,5 @@ with open("video.raw", "rb") as f:
         #Fim do vídeo
         if len(frame) < FRAME_SIZE:
             f.seek(0) #Move o ponteiro para o início
+            # pygame.mixer.music.play()
             break # 'continue', se quiser que loop
