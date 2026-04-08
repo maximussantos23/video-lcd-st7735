@@ -27,16 +27,16 @@ A conversão é feita utilizando o ffmpeg, no site:
 
 ## Comando utilizado
 
-ffmpeg -i video.mp4 -vf transpose=1,scale=128:160,fps=8 -f rawvideo -pix_fmt bgr565le video.raw
+ffmpeg -i video.mp4 -vf transpose=1,scale=128:160,fps=20 -f rawvideo -pix_fmt rgb565be video.raw
 
 # Parâmetros
 
 - -i video.mp4: vídeo de entrada
 - transpose=1: rotaciona o vídeo (corrige orientação)
 - scale=128:160: ajusta para resolução do display
-- fps=8: define taxa de frames (equilíbrio entre fluidez e desempenho)
--f rawvideo: saída sem compressão
-- -pix_fmt bgr565le: formato compatível com o display
+- fps=20: define taxa de frames (equilíbrio entre fluidez e desempenho)
+- -f rawvideo: saída sem compressão
+- -pix_fmt rgb565be: formato compatível com o display
 
 # Diagrama
 
@@ -63,13 +63,6 @@ Rasp -> ST7735
 - Comunicação SPI limita o desempenho
 - FPS típico: 8 a 20 FPS
 - Python + processamento de bytes impacta fluidez
-
-## Poss melhorias
-
-- Remover byte swap (corrigindo direto no ffmpeg)
-- Reduzir FPS para maior estabilidade
-- Usar resolução menor (com ajustes)
-- Implementar buffer duplo
 
 # Conclusão
 
