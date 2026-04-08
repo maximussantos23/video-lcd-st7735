@@ -38,6 +38,18 @@ ffmpeg -i video.mp4 -vf transpose=1,scale=128:160,fps=8 -f rawvideo -pix_fmt bgr
 -f rawvideo: saída sem compressão
 - -pix_fmt bgr565le: formato compatível com o display
 
+# Diagrama
+
+Rasp -> ST7735
+(1) 3.3V  : VCC
+(6) GND   : GND
+(24) GPIO8  : CS
+(18) GPIO24 : RESET
+(22) GPIO25 : A0
+(19) GPIO10 : SDA
+(23) GPIO11 : SCL
+(12) GPIO18 : LED (opcional PWM)
+
 # Obs
 
 - O nome do vídeo deve ser igual, tanto para a conversão quanto no código
