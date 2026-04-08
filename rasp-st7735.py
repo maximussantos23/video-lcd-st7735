@@ -10,6 +10,8 @@ spi = busio.SPI(clock=board.SCK, MOSI=board.MOSI)
 #Pinos
 cs = digitalio.DigitalInOut(board.CE0)
 dc = digitalio.DigitalInOut(board.D25)
+rst = digitalio.DigitalInOut(board.D24)
+bl = digitalio.DigitalInOut(board.D18)
 bl.switch_to_output(value=True)
 
 #Display
@@ -36,12 +38,12 @@ with open("video.raw", "rb") as f:
         start = time.time()
 
         frame = f.read(FRAME_SIZE)
-
-        if len(frame) < FRAME_SIZE:
-            f.seek(0)
-            continue
+        #Cada pixel possui 2 bytes
+        #frame = [11111000 '1 byte', 00000000 '2 bytes',...'40960 bytes'] -> Vermelho
+        #frame = [RRRRRGGG, GGGBBBBB,...]
 
         #correção de cores (byte swap)
+        #[byte0,byte1]=[byte1,byte0]
         frame = bytearray(frame)
         for i in range(0, len(frame), 2):
             frame[i], frame[i+1] = frame[i+1], frame[i]
@@ -53,3 +55,8 @@ with open("video.raw", "rb") as f:
         elapsed = time.time() - start
         if elapsed < DELAY:
             time.sleep(DELAY - elapsed)
+
+        #Fim do vídeo
+        if len(frame) < FRAME_SIZE:
+            f.seek(0) #Move o ponteiro para o início
+            break # 'continue', se quiser que loop
