@@ -27,7 +27,7 @@ A conversão é feita utilizando o ffmpeg, no site:
 
 ## Comando utilizado
 
-ffmpeg -i video.mp4 -vf transpose=1,scale=128:160,fps=20 -f rawvideo -pix_fmt rgb565be video.raw
+ffmpeg -i video.mp4 -vf transpose=1,scale=128:160,fps=20 -f rawvideo -pix_fmt bgr565be video.raw
 
 # Parâmetros
 
