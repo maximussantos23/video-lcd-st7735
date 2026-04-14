@@ -43,6 +43,7 @@ def play(arquivo):
     pygame.mixer.music.load("lcd/"+arquivo+".wav")
     pygame.mixer.music.play()
 
+    # arquivos na pasta lcd/
     with open("lcd/"+arquivo+".raw", "rb") as f:
         while True:
             start = time.time()
