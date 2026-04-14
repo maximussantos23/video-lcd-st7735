@@ -9,12 +9,10 @@ button = Button(23, bounce_time=0.05)
 processo = None
 video = 0
 
+# Inserir nome dos arquivos aqui
 arquivos = {
-    1: "badapple",
-    2: "fnaf2",
-    3: "ncs",
-    4: "silksong",
-    5: "undertale"
+    1: "video1",
+    2: "video2"
 }
 
 def trocar_video():
@@ -29,10 +27,10 @@ def trocar_video():
     if video > 5:
         video = 1
 
-    # iniciar novo
+    # trocar "seuusuario"
     processo = subprocess.Popen(
-        [sys.executable, "/home/maximus/playlcd.py", arquivos[video]],
-        cwd="/home/maximus"
+        [sys.executable, "/home/seuusuario/play-video-st7735.py", arquivos[video]],
+        cwd="/home/seuusuario"
     )
 
 button.when_pressed = trocar_video
