@@ -23,7 +23,7 @@ def trocar_video():
 
     # próximo vídeo
     video += 1
-    if video > 5:
+    if video > len(arquivos):
         video = 1
 
     # trocar "seuusuario"
