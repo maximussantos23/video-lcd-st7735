@@ -3,6 +3,7 @@ from signal import pause
 import subprocess
 import sys
 
+
 # Debounce 0.05 segundos para evitar múltiplos cliques
 button = Button(23, bounce_time=0.05)
 
