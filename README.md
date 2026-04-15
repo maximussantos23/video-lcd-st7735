@@ -8,7 +8,7 @@ Este projeto demonstra como reproduzir um vídeo em um display TFT SPI 1.8" (128
 - O vídeo é convertido em uma sequência de frames brutos (.raw)
 - O Raspberry Pi lê esses frames continuamente
 - Cada frame é enviado ao display como um bloco de pixels
-- Arquivo de som (.wav) é iniciado no driver de som do Raspberry Pi
+- Arquivo de som (.wav) é iniciado no Raspberry Pi
 - Ambos os arquivos devem possuir o mesmo nome, e colocados juntos em uma pasta interna no home/seuusuario.
 - Diretório dos arquivos deve ser alterado em play-video-st7735.py
 
