@@ -56,7 +56,9 @@ Rasp -> ST7735
 - (23) GPIO11 : SCL
 - (12) GPIO18 : LED (opcional PWM)
 
-- (
+Push button
+- (16) GPIO23
+- (9) GND
 
 # Obs
 
