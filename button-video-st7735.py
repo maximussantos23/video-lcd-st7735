@@ -11,8 +11,7 @@ video = 0
 
 # Inserir nome dos arquivos aqui
 arquivos = {
-    1: "video1",
-    2: "video2"
+    1: "cat"
 }
 
 def trocar_video():
