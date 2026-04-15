@@ -9,8 +9,10 @@ Este projeto demonstra como reproduzir mais de um vídeo em um display TFT SPI 1
 - O Raspberry Pi lê esses frames continuamente
 - Cada frame é enviado ao display como um bloco de pixels
 - Arquivo de som (.wav) é iniciado no Raspberry Pi
-- Ambos os arquivos devem possuir o mesmo nome, e colocados juntos em uma pasta interna no home/seuusuario.
-- Diretório dos arquivos deve ser alterado em play-video-st7735.py
+- Ambos os arquivos devem possuir o mesmo nome, e colocados juntos em uma pasta interna no 'home/seuusuario'
+- Adicionar no dict 'arquivos' os arquivos adicionados
+- Diretório dos arquivos deve ser alterado em 'play-video-st7735.py'
+- O sistema é rodado no arquivo 'button-video-st7735.py'
 
 # Configurando o Raspberry
 
@@ -76,10 +78,11 @@ Push button
 
 # Conclusão
 
-Este projeto demonstra um método eficiente para reproduzir vídeo em um display SPI limitado, utilizando:
+Este projeto demonstra um método eficiente para reproduzir vídeo em um display SPI limitado junto com áudio, utilizando:
 
 - Pré-processamento do vídeo e som
 - Envio direto de frames
 - Controle manual de FPS
+- Controle de arquivos com botão
 
 Apesar das limitações de hardware, é possível obter um resultado visual estável e funcional com baixo custo computacional.
