@@ -1,7 +1,7 @@
 # video-lcd-st7735
-Colocando um vídeo com música sincronizada para rodar por SPI no LCD TFT 128*160 1.8 com Raspberry Pi
+Colocando um vídeos com música sincronizada, podendo serem trocados com um botão, para rodar por SPI no LCD TFT 128*160 1.8 com Raspberry Pi
 
-Este projeto demonstra como reproduzir um vídeo em um display TFT SPI 1.8" (128x160) + som utilizando um Raspberry Pi 3. O vídeo é convertido previamente para um formato bruto (.raw) e enviado diretamente ao display via SPI, e um arquivo de som (.wav) é iniciado paralelamente ao mesmo tempo.
+Este projeto demonstra como reproduzir mais de um vídeo em um display TFT SPI 1.8" (128x160) + som utilizando um Raspberry Pi 3. O vídeo é convertido previamente para um formato bruto (.raw), enviado diretamente ao display via SPI e um arquivo de som (.wav) é iniciado paralelamente ao mesmo tempo por vídeo.
 
 # Funcionamento
 
@@ -55,6 +55,8 @@ Rasp -> ST7735
 - (19) GPIO10 : SDA
 - (23) GPIO11 : SCL
 - (12) GPIO18 : LED (opcional PWM)
+
+- (
 
 # Obs
 
