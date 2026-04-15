@@ -1,13 +1,16 @@
 # video-lcd-st7735
-Colocando um vídeo para rodar por SPI no LCD TFT 128*160 1.8 com Raspberry Pi
+Colocando um vídeo com música sincronizada para rodar por SPI no LCD TFT 128*160 1.8 com Raspberry Pi
 
-Este projeto demonstra como reproduzir um vídeo em um display TFT SPI 1.8" (128x160) utilizando um Raspberry Pi. O vídeo é convertido previamente para um formato bruto (.raw) e enviado diretamente ao display via SPI para obter melhor desempenho.
+Este projeto demonstra como reproduzir um vídeo em um display TFT SPI 1.8" (128x160) + som utilizando um Raspberry Pi 3. O vídeo é convertido previamente para um formato bruto (.raw) e enviado diretamente ao display via SPI, e um arquivo de som (.wav) é iniciado paralelamente ao mesmo tempo.
 
 # Funcionamento
 
 - O vídeo é convertido em uma sequência de frames brutos (.raw)
 - O Raspberry Pi lê esses frames continuamente
 - Cada frame é enviado ao display como um bloco de pixels
+- Arquivo de som (.wav) é iniciado no driver de som do Raspberry Pi
+- Ambos os arquivos devem possuir o mesmo nome, e colocados juntos em uma pasta interna no home/seuusuario.
+- Diretório dos arquivos deve ser alterado em play-video-st7735.py
 
 # Configurando o Raspberry
 
@@ -17,7 +20,10 @@ Este projeto demonstra como reproduzir um vídeo em um display TFT SPI 1.8" (128
 
 ## Instalar em venv
 
+- pip install adafruit-blinka
 - pip install adafruit-circuitpython-rgb-display pillow
+- pip install pygame
+- sudo apt install python3-gpiozero
 - sudo apt install python3-pip python3-spidev
 
 # Conversão de vídeo
@@ -52,10 +58,10 @@ Rasp -> ST7735
 
 # Obs
 
-- O nome do vídeo deve ser igual, tanto para a conversão quanto no código
+- Os nomes do vídeo e som devem ser iguais, tanto para a conversão quanto no código
 - O Raspberry Pi deve estar com a conexão SPI ligada, em rasp-confi 
 - A resolução deve ser exatamente 128x160
-- O formato RGB565/BGR565 é obrigatório
+- O formato BGR565 é obrigatório
 - Qualquer diferença resulta em imagem corrompida
 
 ## Limitações
@@ -68,7 +74,7 @@ Rasp -> ST7735
 
 Este projeto demonstra um método eficiente para reproduzir vídeo em um display SPI limitado, utilizando:
 
-- Pré-processamento do vídeo
+- Pré-processamento do vídeo e som
 - Envio direto de frames
 - Controle manual de FPS
 
